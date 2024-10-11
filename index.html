@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Freelance Writer Portfolio">
+    <title>Michael Fields | Freelance Writer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="intro">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Michael Fields, a freelance writer dedicated to crafting compelling content that resonates with audiences.</p>
+            <a id="hireMeButton" href="#contact" class="cta-button">Hire Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I’m Michael Fields, a self-taught freelance writer with a passion for creating diverse content. My journey has equipped me with the skills to write engaging blog posts, persuasive marketing copy, and informative technical documentation.</p>
+        <p>My approach is centered around understanding the client's needs and delivering high-quality, tailored content that captivates the audience. I thrive on challenges and love to explore new topics, which keeps my writing fresh and engaging.</p>
+        <p>Through dedication and self-education, I continuously improve my craft. Let’s collaborate to bring your vision to life through impactful writing!</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-item" onclick="showDetails('item1')">
+            <h3>SEO-Driven Blogging</h3>
+            <p>I have expertise in crafting SEO-driven blog posts tailored for tech startups, with knowledge in researching industry trends and optimizing content for search engines.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item2')">
+            <h3>Copywriting Skills</h3>
+            <p>I possess skills in developing persuasive product descriptions and promotional copy that engage customers and increase conversion rates.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item3')">
+            <h3>Technical Writing Knowledge</h3>
+            <p>I am knowledgeable in creating comprehensive user manuals and technical guides that enhance user experience and ensure clarity.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item4')">
+            <h3>Health and Wellness Blogging</h3>
+            <p>I have a strong background in writing informative blog posts on health and wellness topics, which help attract and engage readers.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item5')">
+            <h3>Marketing Campaign Strategies</h3>
+            <p>I understand how to craft effective marketing campaigns that utilize compelling copy across various platforms to engage local audiences.</p>
+            <p>Click for details...</p>
+        </div>
+    </section>
+
+    <div id="detailsModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" id="modalContent" onclick="event.stopPropagation();"></div>
+    </div>
+
+    <section id="services">
+        <h2>Services Offered</h2>
+        <p>I provide a range of writing services tailored to meet your needs:</p>
+        <ul>
+            <li><strong>Freelance Writer</strong> – Crafting compelling narratives that engage readers and drive results.</li>
+            <li><strong>Content Writer</strong> – Producing high-quality, informative content across various topics that resonates with target audiences.</li>
+            <li><strong>Copywriter</strong> – Developing persuasive copy that enhances brand messaging and increases conversions.</li>
+            <li><strong>Search Engine Optimization Specialist</strong> – Implementing SEO strategies to improve content visibility and drive organic traffic.</li>
+            <li><strong>Freelance Blogger</strong> – Writing engaging blog posts that not only inform but also entertain and retain readership.</li>
+        </ul>
+        <p>Each service is designed to help your business communicate effectively and achieve its goals. Let's collaborate to create compelling content!</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to discuss a project or hire me, feel free to reach out using the form below, or contact me directly at <a href="mailto:fieldsmc7@gmail.com">fieldsmc7@gmail.com</a>.</p>
+        <form action="send_email.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Michael Fields | Freelance Writer</p>
+    </footer>
+
+    <script>
+        function showDetails(item) {
+            const modal = document.getElementById("detailsModal");
+            const modalContent = document.getElementById("modalContent");
+            let content = "";
+
+            switch (item) {
+                case 'item1':
+                    content = "<h3>SEO-Driven Blogging</h3><p>Expertise in crafting SEO-driven blog posts tailored for tech startups, with knowledge in researching industry trends and optimizing content for search engines.</p>";
+                    break;
+                case 'item2':
+                    content = "<h3>Copywriting Skills</h3><p>Possess skills in developing persuasive product descriptions and promotional copy that engage customers and increase conversion rates.</p>";
+                    break;
+                case 'item3':
+                    content = "<h3>Technical Writing Knowledge</h3><p>Knowledgeable in creating comprehensive user manuals and technical guides that enhance user experience and ensure clarity.</p>";
+                    break;
+                case 'item4':
+                    content = "<h3>Health and Wellness Blogging</h3><p>Strong background in writing informative blog posts on health and wellness topics, which help attract and engage readers.</p>";
+                    break;
+                case 'item5':
+                    content = "<h3>Marketing Campaign Strategies</h3><p>Understand how to craft effective marketing campaigns that utilize compelling copy across various platforms to engage local audiences.</p>";
+                    break;
+            }
+
+            modalContent.innerHTML = content;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("detailsModal").style.display = "none";
+        }
+    </script>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        #contact {
+            background-color: #fff;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #contact h2 {
+            font-weight: 700;
+            color: #4A4A4A;
+            text-align: center; /* Center the heading */
+        }
+
+        #contact p {
+            margin-bottom: 20px;
+            text-align: center; /* Center the paragraph text */
+        }
+
+        #contact label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left; /* Align labels to the left */
+        }
+
+        #contact input, 
+        #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center; /* Center text in input fields */
+        }
+
+        #contact .submit-button {
+            background-color: #4A4A4A;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: block; /* Make the button a block element */
+            margin: 0 auto; /* Center the button */
+        }
+
+        #contact .submit-button:hover {
+            background-color: #333;
+        }
+    </style>
+</body>
+</html>
+

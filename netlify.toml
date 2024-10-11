@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/contact"
+  to = "/thank-you"
+  status = 302
+  force = true
