@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michael Fields - Freelance Writer Portfolio">
+    <title>Michael Fields | Freelance Writer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #0d0d0d;
+            color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3366; /* Accent color */
+        }
+
+        .intro {
+            text-align: center;
+            padding: 100px 20px; /* Increased top padding to account for fixed header */
+            position: relative; /* Set position for video */
+        }
+
+        /* Video Styles */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure the video is behind the text */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0.5em 0;
+            position: relative;
+            z-index: 1; /* Ensure heading is above video */
+        }
+
+        .cta-button {
+            background-color: #ff3366; /* Accent color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            z-index: 1; /* Ensure button is above video */
+        }
+
+        .cta-button:hover {
+            background-color: #e62e5c; /* Darker shade for hover effect */
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        #portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: #f2f2f2;
+        }
+
+        h2 {
+            color: #ff3366; /* Accent color for headings */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="intro">
+            <video autoplay muted loop playsinline>
+                <source src="assets/typing.webm" type="video/webm">
+                <source src="assets/typing.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Michael Fields, a freelance writer dedicated to crafting compelling content that resonates with audiences.</p>
+            <a id="hireMeButton" href="#contact" class="cta-button">Hire Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I’m Michael Fields, a self-taught freelance writer with a passion for creating diverse content. My journey has equipped me with the skills to write engaging blog posts, persuasive marketing copy, and informative technical documentation.</p>
+        <p>My approach is centered around understanding the client's needs and delivering high-quality, tailored content that captivates the audience. I thrive on challenges and love to explore new topics, which keeps my writing fresh and engaging.</p>
+        <p>Through dedication and self-education, I continuously improve my craft. Let’s collaborate to bring your vision to life through impactful writing!</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-item" onclick="showDetails('item1')">
+            <h3>SEO-Driven Blogging</h3>
+            <p>Expertise in crafting SEO-driven blog posts tailored for tech startups. Focus on researching industry trends, identifying relevant keywords, and creating engaging content that drives traffic.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item2')">
+            <h3>Copywriting Skills</h3>
+            <p>Developing persuasive product descriptions and promotional copy. Skills in writing clear, compelling text that increases customer engagement and conversions across various platforms.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item3')">
+            <h3>Technical Writing Knowledge</h3>
+            <p>Creating comprehensive user manuals and technical guides. Experience in breaking down complex topics into easy-to-understand language, ensuring clarity and usability for the end user.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item4')">
+            <h3>Health and Wellness Blogging</h3>
+            <p>Writing informative blog posts on health and wellness topics. Passion for researching and sharing knowledge about fitness, nutrition, and mental well-being, aiming to inspire and educate readers.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item5')">
+            <h3>Marketing Campaign Strategies</h3>
+            <p>Crafting effective marketing campaigns with compelling copy. Proven ability to understand target audiences, create engaging content, and develop strategies that drive brand awareness and customer loyalty.</p>
+            <p>Click for details...</p>
+        </div>
+    </section>
+
+    <div id="detailsModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" id="modalContent" onclick="event.stopPropagation();"></div>
+    </div>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you’d like to discuss a project or hire me, feel free to reach out directly at <a href="mailto:fieldsmc7@gmail.com">fieldsmc7@gmail.com</a>.</p>
+        <p>I look forward to connecting!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Michael Fields | Freelance Writer</p>
+    </footer>
+
+    <script>
+        function showDetails(item) {
+            const modal = document.getElementById("detailsModal");
+            const modalContent = document.getElementById("modalContent");
+            let content = "";
+
+            switch (item) {
+                case 'item1':
+                    content = "<h3>SEO-Driven Blogging</h3><p>Expertise in crafting SEO-driven blog posts tailored for tech startups. Focus on researching industry trends, identifying relevant keywords, and creating engaging content that drives traffic.</p>";
+                    break;
+                case 'item2':
+                    content = "<h3>Copywriting Skills</h3><p>Developing persuasive product descriptions and promotional copy. Skills in writing clear, compelling text that increases customer engagement and conversions across various platforms.</p>";
+                    break;
+                case 'item3':
+                    content = "<h3>Technical Writing Knowledge</h3><p>Creating comprehensive user manuals and technical guides. Experience in breaking down complex topics into easy-to-understand language, ensuring clarity and usability for the end user.</p>";
+                    break;
+                case 'item4':
+                    content = "<h3>Health and Wellness Blogging</h3><p>Writing informative blog posts on health and wellness topics. Passion for researching and sharing knowledge about fitness, nutrition, and mental well-being, aiming to inspire and educate readers.</p>";
+                    break;
+                case 'item5':
+                    content = "<h3>Marketing Campaign Strategies</h3><p>Crafting effective marketing campaigns with compelling copy. Proven ability to understand target audiences, create engaging content, and develop strategies that drive brand awareness and customer loyalty.</p>";
+                    break;
+            }
+
+            modalContent.innerHTML = content;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("detailsModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
+
+
+
