@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Michael Fields">
+    <title>Portfolio | Michael Fields</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-item" onclick="showDetails('item1')">
+            <h3>SEO-Driven Blog for Tech Startups</h3>
+            <p>Increased organic traffic by 150% through well-researched, SEO-optimized blog posts for a leading tech startup.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item2')">
+            <h3>Copywriting for E-commerce Brand</h3>
+            <p>Developed engaging product descriptions and promotional copy that led to a 20% increase in sales for an e-commerce company.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item3')">
+            <h3>Technical Guide for Software Application</h3>
+            <p>Created a comprehensive user manual for a complex software application, enhancing user experience and reducing support queries.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item4')">
+            <h3>Blog Series for Health and Wellness</h3>
+            <p>Authored a series of blog posts on health and wellness topics, increasing site traffic by over 100%.</p>
+            <p>Click for details...</p>
+        </div>
+        <div class="portfolio-item" onclick="showDetails('item5')">
+            <h3>Marketing Campaign for a Local Business</h3>
+            <p>Wrote compelling copy for a local business’s marketing campaign, including emails and social media posts.</p>
+            <p>Click for details...</p>
+        </div>
+    </section>
+
+    <div id="detailsModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Michael Fields | Freelance Writer</p>
+    </footer>
+
+    <script>
+        function showDetails(item) {
+            const modal = document.getElementById("detailsModal");
+            const modalContent = document.getElementById("modalContent");
+            let content = "";
+
+            switch (item) {
+                case 'item1':
+                    content = "<h3>SEO-Driven Blog for Tech Startups</h3><p>Increased organic traffic by 150% through well-researched, SEO-optimized blog posts for a leading tech startup. Collaborated with the marketing team to identify key topics and ensure alignment with industry trends.</p>";
+                    break;
+                case 'item2':
+                    content = "<h3>Copywriting for E-commerce Brand</h3><p>Developed engaging product descriptions that led to a 20% increase in sales for an e-commerce company. Focused on highlighting unique features and benefits while maintaining a persuasive tone.</p>";
+                    break;
+                case 'item3':
+                    content = "<h3>Technical Guide for Software Application</h3><p>Created a comprehensive user manual, enhancing user experience and reducing support queries. Ensured clarity and conciseness while collaborating with the development team.</p>";
+                    break;
+                case 'item4':
+                    content = "<h3>Blog Series for Health and Wellness</h3><p>Authored a series of blog posts on health topics, increasing site traffic by over 100%. Each post included in-depth research and practical advice.</p>";
+                    break;
+                case 'item5':
+                    content = "<h3>Marketing Campaign for a Local Business</h3><p>Wrote compelling copy for a local marketing campaign, including emails and social media posts, resulting in significant local engagement.</p>";
+                    break;
+            }
+
+            modalContent.innerHTML = content;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("detailsModal").style.display = "none";
+        }
+    </script>
+
+    <style>
+        .modal {
+            display: none;
+            position
